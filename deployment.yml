@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-service
+spec:
+  selector:
+    matchLabels:
+      app: sample-service
+  replicas: 2
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: sample-service
+    spec:
+      containers:
+        - name: sample-service
+          image: registry.mszuyev.xyz/goapp1:0.2
+          ports:
+            - containerPort: 4569
+      imagePullSecrets:
+        - name: mszuyev-docker-registry

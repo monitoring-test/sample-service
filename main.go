@@ -30,7 +30,7 @@ func main() {
 }
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	help := "This is sample service (WIP)"
+	help := "This is sample service V0.2"
 	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "text/plain")
 	_, _ = w.Write([]byte(help))
