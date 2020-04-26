@@ -10,5 +10,5 @@ FROM alpine
 
 ENV WD=/go/src/github.com/monitoring-test/sample-service
 COPY --from=builder $WD/application /app/application
-WORKDIR /application
+WORKDIR /app
 ENTRYPOINT ["./application"]
